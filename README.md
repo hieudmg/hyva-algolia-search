@@ -1,22 +1,25 @@
 # hyva-algolia-search
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/blackbird/module-hyva-algolia-search.svg?style=flat-square)](https://packagist.org/packages/blackbird/module-hyva-algolia-search)
-[![License: MIT](https://img.shields.io/github/license/blackbird-agency/hyva-algolia-search.svg?style=flat-square)](./LICENSE)
+[![Latest Stable Version](https://img.shields.io/packagist/v/hieudmg/module-hyva-algolia-search.svg?style=flat-square)](https://packagist.org/packages/hieudmg/module-hyva-algolia-search)
+[![License: MIT](https://img.shields.io/github/license/hieudmg/hyva-algolia-search.svg?style=flat-square)](./LICENSE)
+
+This fork is a drop-in replacement for the [original module](https://github.com/blackbird-agency/hyva-algolia-search), which seems to be abandoned.
+Including some fixes to keep up with latest version of Hyva.
 
 Compat module for Algolia Search on Magento 2 using Hyvä Themes. This requires:
 - A [Hyvä Themes](https://www.hyva.io/) key
 - Access to Algolia
-- [blackbird/external-ressource-loader](https://github.com/blackbird-agency/external-resources-loader) to dynamically load all the Algolia ressources. 
+- [blackbird/external-ressource-loader](https://github.com/blackbird-agency/external-resources-loader) to dynamically load all the Algolia ressources.
 
 ## Setup
 
 Get the package
 
 Composer Package:
-```composer require blackbird/module-hyva-algolia-search```
+```composer require hieudmg/module-hyva-algolia-search```
 
 Zip Package:
-Unzip the package in app/code/Blackbird/HyvaAlgoliaSearch, from the root of your Magento instance.
+Not recommended.
 
 ## Install the module
 
@@ -38,21 +41,7 @@ Depending on how the module has been installed, the following line must be now p
   "extensions": [
     ...
     {
-      "src": "vendor\/blackbird\/module-hyva-algolia-search\/src"
-    },
-    ...
-  ]
-}
-```
-
-### Installed using a Zip package
-
-```
-{
-  "extensions": [
-    ...
-    {
-      "src": "app\/code\/Blackbird\/HyvaAlgoliaSearch\/src"
+      "src": "vendor\/hieudmg\/module-hyva-algolia-search\/src"
     },
     ...
   ]
