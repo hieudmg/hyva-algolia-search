@@ -7,6 +7,7 @@ use Hyva\Theme\ViewModel\HeroiconsSolid;
 use Hyva\Theme\ViewModel\BlockJsDependencies;
 use Magento\Framework\Escaper;
 
+/** @var \Hyva\Theme\ViewModel\HyvaCsp $hyvaCsp */
 /** @var Escaper $escaper */
 /** @var ViewModelRegistry $viewModels */
 /** @var HeroiconsOutline $heroiconsOutline */
@@ -144,3 +145,4 @@ $pageJsRegistry->setBlockNameDependency($block, 'search.result.list.js.compare')
         }
     }
 </script>
+<?php $hyvaCsp->registerInlineScript() ?>

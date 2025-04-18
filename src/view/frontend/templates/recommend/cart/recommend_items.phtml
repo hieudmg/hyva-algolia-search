@@ -2,6 +2,7 @@
 
 use Algolia\AlgoliaSearch\ViewModel\Recommend\Cart;
 
+/** @var \Hyva\Theme\ViewModel\HyvaCsp $hyvaCsp */
 /**
  * @var \Hyva\Theme\Model\ViewModelRegistry $viewModels
  */
@@ -29,4 +30,5 @@ if (isset($recommendConfig['enabledRelatedInCart']) || isset($recommendConfig['e
             }
         }
     </script>
+    <?php $hyvaCsp->registerInlineScript() ?>
 <?php endif; ?>

@@ -8,6 +8,7 @@ use Magento\Framework\Escaper;
 /** @var Algolia $block */
 /** @var Escaper $escaper */
 /** @var ViewModelRegistry $viewModels */
+/** @var \Hyva\Theme\ViewModel\HyvaCsp $hyvaCsp */
 
 $config = $block->getConfigHelper();
 
@@ -135,5 +136,6 @@ if ($config->isDefaultSelector() && $config->isInstantEnabled()): ?>
             initAlgoliaInsights(true);
         });
     </script>
+    <?php $hyvaCsp->registerInlineScript() ?>
 <?php endif; ?>
 <?= $block->getChildHtml('insights-js') ?>

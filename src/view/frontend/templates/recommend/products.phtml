@@ -2,6 +2,7 @@
 use Algolia\AlgoliaSearch\ViewModel\Recommend\ProductView;
 use Hyva\Theme\ViewModel\HeroiconsOutline;
 
+/** @var \Hyva\Theme\ViewModel\HyvaCsp $hyvaCsp */
 /**
  * @var \Hyva\Theme\Model\ViewModelRegistry $viewModels
  */
@@ -33,5 +34,6 @@ if (isset($recommendConfig['enabledFBT']) || isset($recommendConfig['enabledRela
             }
         }
     </script>
+    <?php $hyvaCsp->registerInlineScript() ?>
 
 <?php endif; ?>
