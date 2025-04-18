@@ -117,7 +117,7 @@ if ($config->isDefaultSelector() && $config->isInstantEnabled()): ?>
         }
         <?php endif; ?>
 
-        if (algoliaConfig.autocomplete.enabled) {
+        if (algoliaConfig.autocomplete.enabled && document.getElementById('menu-search-icon')) {
             document.getElementById('menu-search-icon').onclick = async () => {
                 await initAutocomplete()
                 algolia.registerHook('afterAutocompleteStart', function () {
