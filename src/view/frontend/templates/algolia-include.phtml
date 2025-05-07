@@ -100,7 +100,7 @@ if ($config->isDefaultSelector() && $config->isInstantEnabled()): ?>
                     initRecommended(objectIds);
                     recommendedLoaded = true;
                 }
-            }
+            });
         }
         <?php endif;?>
 
@@ -114,7 +114,7 @@ if ($config->isDefaultSelector() && $config->isInstantEnabled()): ?>
             items.forEach(function (item) {
                 objectIds.push(item.product_id);
             });
-        }
+        });
         <?php endif; ?>
 
         if (algoliaConfig.autocomplete.enabled && document.getElementById('menu-search-icon')) {
