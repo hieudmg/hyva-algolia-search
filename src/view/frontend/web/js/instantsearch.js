@@ -309,47 +309,46 @@ function initAlgoliaInstantSearch() {
                         });
                         return item;
                     });
+            }
+        },
+        /*
+         * clearRefinements
+         * Widget displays a button that lets the user clean every refinement applied to the search. You can control which attributes are impacted by the button with the options.
+         * Docs: https://www.algolia.com/doc/api-reference/widgets/clear-refinements/js/
+         **/
+        clearRefinements: {
+            container: '#clear-refinements',
+            templates: {
+                resetLabel: algoliaConfig.translations.clearAll,
             },
-
-            /*
-             * clearRefinements
-             * Widget displays a button that lets the user clean every refinement applied to the search. You can control which attributes are impacted by the button with the options.
-             * Docs: https://www.algolia.com/doc/api-reference/widgets/clear-refinements/js/
-             **/
-            clearRefinements: {
-                container: '#clear-refinements',
-                templates: {
-                    resetLabel: algoliaConfig.translations.clearAll,
-                },
-                includedAttributes: attributes.map(function (attribute) {
-                    if (!(algoliaConfig.isCategoryPage && attribute.name.indexOf('categories') > -1)) {
-                        return attribute.name;
-                    }
-                }),
-                cssClasses: {
-                    button: ['action', 'primary']
-                },
-                transformItems: function (items) {
-                    return items.map(function (item) {
-                        const attribute = attributes.filter(function (_attribute) {
-                            return item.attribute === _attribute.name
-                        })[0];
-                        if (!attribute) return item;
-                        item.label = attribute.label;
-                        return item;
-                    })
+            includedAttributes: attributes.map(function (attribute) {
+                if (!(algoliaConfig.isCategoryPage && attribute.name.indexOf('categories') > -1)) {
+                    return attribute.name;
                 }
+            }),
+            cssClasses: {
+                button: ['action', 'primary']
             },
-            /*
-             * queryRuleCustomData
-             * The queryRuleCustomData widget displays custom data from Query Rules.
-             * Docs: https://www.algolia.com/doc/api-reference/widgets/query-rule-custom-data/js/
-             **/
-            queryRuleCustomData: {
-                container: '#algolia-banner',
-                templates: {
-                    default: '{{#items}} {{#banner}} {{{banner}}} {{/banner}} {{/items}}',
-                }
+            transformItems: function (items) {
+                return items.map(function (item) {
+                    const attribute = attributes.filter(function (_attribute) {
+                        return item.attribute === _attribute.name
+                    })[0];
+                    if (!attribute) return item;
+                    item.label = attribute.label;
+                    return item;
+                })
+            }
+        },
+        /*
+         * queryRuleCustomData
+         * The queryRuleCustomData widget displays custom data from Query Rules.
+         * Docs: https://www.algolia.com/doc/api-reference/widgets/query-rule-custom-data/js/
+         **/
+        queryRuleCustomData: {
+            container: '#algolia-banner',
+            templates: {
+                default: '{{#items}} {{#banner}} {{{banner}}} {{/banner}} {{/items}}',
             }
         }
     };
