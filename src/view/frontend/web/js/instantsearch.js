@@ -66,7 +66,7 @@ function initAlgoliaInstantSearch() {
         config: algoliaConfig.instant,
         translations: algoliaConfig.translations
     });
-    document.getElementById(selectors.instantResultsWrapper).innerHTML += '<div id="algolia-instant-selector-results">' + wrapper + '</div>';
+    document.getElementById(selectors.instantResultsWrapper).insertAdjacentHTML('beforeend', '<div id="algolia-instant-selector-results">' + wrapper + '</div>');
     document.querySelector('#algolia-instant-selector-results').innerHTML = wrapper;
     document.getElementById(selectors.instantResultsWrapper).style.display = 'block';
 
