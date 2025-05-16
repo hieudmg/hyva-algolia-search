@@ -28,6 +28,7 @@
         </referenceBlock>
 
         <referenceBlock name="before.body.end">
+            <block name="algolia-hooks" template="Blackbird_HyvaAlgoliaSearch::algolia-hooks.phtml"/>
             <block name="algolia-search"
                    as="header-search"
                    template="Blackbird_HyvaAlgoliaSearch::algolia-include.phtml"

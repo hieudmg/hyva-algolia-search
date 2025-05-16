@@ -1,0 +1,9 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Hyva\Theme\ViewModel\HyvaCsp $hyvaCsp */
+?>
+<script>
+  window.algoliaHooks = window.algoliaHooks || [];
+</script>
+<?php $hyvaCsp->registerInlineScript() ?>
+<?= $block->getChildHtml() ?>
