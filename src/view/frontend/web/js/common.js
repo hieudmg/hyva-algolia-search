@@ -88,6 +88,13 @@ function initAlgoliaCommon() {
         }
     };
 
+    const hooks = window.algoliaHooks || [];
+    for (const hook of hooks) {
+        for (const hookName in hook) {
+            window.algolia.registerHook(hookName, hook[hookName]);
+        }
+    }
+
     window.isMobile = function () {
         let check = false;
 
