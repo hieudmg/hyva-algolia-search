@@ -32,7 +32,9 @@ function initAlgoliaCommon() {
             'beforeWidgetInitialization',
             'beforeInstantsearchStart',
             'afterInstantsearchStart',
-            'afterInsightsBindEvents'
+            'afterInsightsBindEvents',
+            'beforeAlgoliaCommon',
+            'afterAlgoliaCommon',
         ],
         registeredHooks: [],
         registerHook: function (hookName, callback) {
@@ -94,6 +96,8 @@ function initAlgoliaCommon() {
             window.algolia.registerHook(hookName, hook[hookName]);
         }
     }
+
+    window.algolia.triggerHooks('beforeAlgoliaCommon', algoliaConfig);
 
     window.isMobile = function () {
         let check = false;
@@ -595,55 +599,5 @@ function initAlgoliaCommon() {
         }
     };
 
-    // $(function ($) {
-    //     if (typeof algoliaConfig === 'undefined') {
-    //         return;
-    //     }
-    //     $(algoliaConfig.autocomplete.selector).each(function () {
-    //         $(this).closest('form').on('submit', function (e) {
-    //             let query = $(this).find(algoliaConfig.autocomplete.selector).val();
-    //
-    //             query = encodeURIComponent(query);
-    //
-    //             if (algoliaConfig.instant.enabled && query === '')
-    //                 query = '__empty__';
-    //
-    //             window.location = $(this).attr('action') + '?q=' + query;
-    //
-    //             return false;
-    //         });
-    //     });
-    //
-    //     function handleInputCrossAutocomplete(input) {
-    //         if (input.val().length > 0) {
-    //             input.closest('#algolia-searchbox').find('.clear-query-autocomplete').show();
-    //             input.closest('#algolia-searchbox').find('.magnifying-glass').hide();
-    //         } else {
-    //             input.closest('#algolia-searchbox').find('.clear-query-autocomplete').hide();
-    //             input.closest('#algolia-searchbox').find('.magnifying-glass').show();
-    //         }
-    //     }
-    //
-    //     $(document).on('click', '.clear-query-autocomplete', function () {
-    //         var input = $(this).closest('#algolia-searchbox').find('input');
-    //
-    //         input.val('');
-    //          if (input.length) {
-    //             input.get(0).dispatchEvent(new Event('input'));
-    //          }
-    //
-    //         handleInputCrossAutocomplete(input);
-    //     });
-    //
-    //     /** Handle small screen **/
-    //     $('body').on('click', '#refine-toggle', function () {
-    //         $('#instant-search-facets-container').toggleClass('hidden-sm').toggleClass('hidden-xs');
-    //         if ($(this).html().trim()[0] === '+')
-    //             $(this).html('- ' + algoliaConfig.translations.refine);
-    //         else
-    //             $(this).html('+ ' + algoliaConfig.translations.refine);
-    //     });
-    //
-    //
-    // });
+    window.algolia.triggerHooks('afterAlgoliaCommon', algoliaConfig);
 }
