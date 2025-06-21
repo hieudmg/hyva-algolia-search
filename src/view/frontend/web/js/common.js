@@ -35,6 +35,7 @@ function initAlgoliaCommon() {
             'afterInsightsBindEvents',
             'beforeAlgoliaCommon',
             'afterAlgoliaCommon',
+            'beforeFacetPanelOptions',
         ],
         registeredHooks: [],
         registerHook: function (hookName, callback) {

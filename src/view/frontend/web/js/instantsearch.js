@@ -534,6 +534,7 @@ function initAlgoliaInstantSearch() {
                 }
             }
         };
+        algolia.triggerHooks('beforeFacetPanelOptions', panelOptions, facet);
         if (facet.type === 'priceRanges') {
             delete templates.item;
 
