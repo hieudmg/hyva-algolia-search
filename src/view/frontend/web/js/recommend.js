@@ -98,4 +98,34 @@ function initAlgoliaRecommended(context, algoliaObjectId) {
             },
         });
     }
+
+    if ((algoliaConfig.recommend.isLookingSimilarEnabledInPDP && context === 'catalog_product_view')) {
+        recommendJs.lookingSimilar({
+            container: '#lookingSimilar',
+            recommendClient,
+            indexName,
+            objectIDs: algoliaObjectId,
+            maxRecommendations: algoliaConfig.recommend.limitLookingSimilar,
+            transformItems: function (items) {
+                return items.map((item, index) => ({
+                    ...item,
+                    position: index + 1,
+                }));
+            },
+            headerComponent({html, recommendations}) {
+                return productsHtml.getHeaderHtml({
+                    html,
+                    title: algoliaConfig.recommend.lookingSimilarTitle,
+                    recommendations
+                });
+            },
+            itemComponent({item, html}) {
+                return productsHtml.getItemHtml({
+                    item,
+                    html,
+                    addToCartEnabled: algoliaConfig.recommend.isAddToCartEnabledInLookingSimilar
+                });
+            }
+        });
+    }
 }
