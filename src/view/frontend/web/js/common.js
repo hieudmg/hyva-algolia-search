@@ -213,7 +213,7 @@ function initAlgoliaCommon() {
         // Add to cart parameters
         const action = algoliaConfig.instant.addToCartParams.action + 'product/' + hit.objectID + '/';
 
-        const correctFKey = hyva.getBrowserStorage()?.getItem('form_key');
+        const correctFKey = hyva.getFormKey();
 
         if (correctFKey && correctFKey !== "" && algoliaConfig.instant.addToCartParams.formKey !== correctFKey) {
             algoliaConfig.instant.addToCartParams.formKey = correctFKey;
